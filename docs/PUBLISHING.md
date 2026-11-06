@@ -4,7 +4,7 @@ Each repository publishes its own site through `.github/workflows/pages.yml` on 
 
 | Repository | Website |
 | --- | --- |
-| `aiforlinguistics` | https://ai-for-linguistics.github.io/aiforlinguistics/ |
+| `ai-for-linguistics.github.io` | https://ai-for-linguistics.github.io/ |
 | `linglab` | https://ai-for-linguistics.github.io/linglab/ |
 | `lingrev` | https://ai-for-linguistics.github.io/lingrev/ |
 

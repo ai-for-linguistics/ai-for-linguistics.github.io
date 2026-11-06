@@ -2,7 +2,7 @@
 
 Tools for exploring new ways to work in semantics.
 
-**[Visit the website](https://ai-for-linguistics.github.io/aiforlinguistics/)**
+**[Visit the website](https://ai-for-linguistics.github.io/)**
 
 - [LingLib](https://github.com/linglib-community/linglib): facts and theories formalized in Lean.
 - [LingLab](https://ai-for-linguistics.github.io/linglab/): work on your facts and principles.
