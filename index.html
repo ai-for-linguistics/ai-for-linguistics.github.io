@@ -1,72 +1,204 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Three tools to explore how AI can support everyday research in semantics: linglib, linglab, and lingrev.">
-  <title>AI for linguistics</title>
-  <style>
-    :root { color-scheme: light; --paper:#f7f5ef; --white:#fff; --ink:#1d2742; --muted:#4a5572; --line:#d5d9e2; --blue:#2f5fc4; }
-    * { box-sizing:border-box; }
-    body { margin:0; background:var(--paper); color:var(--ink); font-family:system-ui,-apple-system,"Segoe UI",sans-serif; -webkit-font-smoothing:antialiased; }
-    .sticky-title { position:sticky; top:0; z-index:10; background:var(--paper); }
-    .sticky-title .inner { width:min(1440px,100%); margin:auto; padding:clamp(24px,4vw,56px) clamp(20px,4vw,64px) 18px; }
-    main { width:min(1440px,100%); margin:auto; padding:0 clamp(20px,4vw,64px) 52px; }
-    header { margin-bottom:clamp(32px,4vw,56px); }
-    h1 { margin:0; font-size:clamp(38px,5.5vw,72px); font-weight:650; letter-spacing:-.045em; line-height:1.06; }
-    .intro { max-width:850px; margin:0; font-size:clamp(18px,1.7vw,23px); line-height:1.55; color:var(--muted); text-wrap:pretty; }
-    .tools { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); column-gap:22px; row-gap:16px; }
-    article { min-width:0; display:grid; grid-template-rows:subgrid; grid-row:span 3; padding:26px 24px 24px; border:1px solid var(--line); border-radius:18px; background:var(--white); }
-    .requirements { display:block; margin-top:10px; font-size:14px; line-height:1.4; color:var(--muted); }
-    .coverage { display:block; margin-top:10px; font-size:14px; line-height:1.4; color:var(--blue); font-weight:600; }
-    h2 { margin:0 0 8px; font-size:32px; line-height:1.15; font-weight:650; letter-spacing:-.035em; }
-    article p { margin:0; color:var(--muted); font-size:18px; line-height:1.5; }
-    figure { margin:0 -8px; aspect-ratio:640/374; display:flex; align-items:center; justify-content:center; }
-    figure img { display:block; width:100%; height:100%; object-fit:contain; }
-    .tool-link { display:inline-flex; align-items:center; justify-content:space-between; gap:24px; margin-top:auto; padding:14px 0 0; border-top:1px solid var(--line); color:var(--blue); text-decoration:none; font-size:16px; font-weight:650; }
-    .card-bottom { display:flex; flex-direction:column; gap:8px; }
-    .card-bottom .tool-link { display:flex; margin-top:0; }
-    .credit { align-self:flex-end; color:var(--muted); font-size:12px; line-height:1.4; text-decoration:none; }
-    .credit:hover { color:var(--blue); text-decoration:underline; }
-    .tool-link:hover { text-decoration:underline; text-underline-offset:4px; }
-    .figure-link { display:block; width:100%; height:100%; border-radius:8px; }
-    .figure-link:hover { opacity:.85; }
-    a:focus-visible { outline:3px solid var(--blue); outline-offset:6px; border-radius:2px; }
-    .tool-link span { font-size:23px; line-height:1; font-weight:400; }
-    .about { position:sticky; bottom:0; z-index:9; margin-top:24px; padding:14px 0; border-top:1px solid var(--line); background:var(--paper); color:var(--muted); font-size:13px; line-height:1.3; }
-    .about p { margin:0; }
-    .about strong { color:var(--ink); font-weight:650; }
-    .about a { display:inline; color:var(--muted); text-decoration:none; white-space:nowrap; }
-    .about a:hover { color:var(--blue); text-decoration:underline; text-underline-offset:3px; }
-    .about svg { width:13px; height:13px; margin-right:4px; vertical-align:-2px; }
-    @media(max-width:1000px) { .tools { grid-template-columns:1fr; gap:20px; } article { display:grid; grid-template-rows:none; grid-row:auto; grid-template-columns:minmax(200px,2fr) minmax(0,3fr); column-gap:28px; align-items:start; } article > div { min-height:0; } article p { min-height:0; } figure { grid-column:2; grid-row:1/4; margin:0; } .card-bottom { grid-column:1; margin-top:28px; } }
-    @media(max-width:560px) { article { display:flex; padding:24px 20px 20px; } figure { margin:22px 0; width:100%; } .card-bottom { margin-top:0; } h2 { font-size:30px; } }
-  </style>
-</head>
-<body>
-  <div class="sticky-title"><div class="inner"><h1>AI for linguistics</h1></div></div>
-  <main>
-    <header>
-      <p class="intro">AI can accelerate some aspects of research in linguistics. The tools below offer inspiration for your everyday work in semantics. Use with caution, and with creativity! You can use prompts to transform your work or the tools themselves.</p>
-    </header>
-    <div class="tools">
-      <article aria-labelledby="linglib-title">
-        <div><h2 id="linglib-title">linglib</h2><p>A library of facts and theories in semantics, all formalized in Lean.<span class="coverage" title="551 works tagged formalized in semantics in the LingLib bibliography; checked 25 October 2026.">550+ works in semantics covered</span></p></div>
-        <figure><a class="figure-link" href="https://github.com/linglib-community/linglib" aria-label="Explore linglib on GitHub"><img src="assets/linglib.svg" width="640" height="374" alt="LingLib logo above a shelf of book-like theories marked with ∀, ∃, and other logical symbols."></a></figure>
-        <div class="card-bottom"><a class="tool-link" href="https://github.com/linglib-community/linglib">Explore the library <span aria-hidden="true">↗</span></a><a class="credit" href="https://rdhawkins.com/" target="_blank" rel="noopener">by Robert Hawkins</a></div>
-      </article>
-      <article aria-labelledby="linglab-title">
-        <div><h2 id="linglab-title">linglab</h2><p>Work on your facts and principles.<span class="requirements">Requires an AI assistant of your own.</span></p></div>
-        <figure><a class="figure-link" href="https://ai-for-linguistics.github.io/linglab/" aria-label="View the linglab intro"><img src="assets/linglab.svg" width="640" height="374" alt="A chat with an AI assistant beside a report comparing theories against facts."></a></figure>
-        <div class="card-bottom"><a class="tool-link" href="https://ai-for-linguistics.github.io/linglab/">View the intro <span aria-hidden="true">↗</span></a></div>
-      </article>
-      <article aria-labelledby="lingrev-title">
-        <div><h2 id="lingrev-title">lingrev</h2><p>Review your paper.<span class="requirements">Requires an AI assistant of your own.</span></p></div>
-        <figure><a class="figure-link" href="https://ai-for-linguistics.github.io/lingrev/" aria-label="View the lingrev intro"><img src="assets/lingrev.svg" width="640" height="374" alt="A chat for requesting checks and revisions beside a paper review dashboard."></a></figure>
-        <div class="card-bottom"><a class="tool-link" href="https://ai-for-linguistics.github.io/lingrev/">View the intro <span aria-hidden="true">↗</span></a></div>
-      </article>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Three tools to explore how AI can support everyday research in semantics: linglib, linglab, and lingrev."
+    />
+    <title>AI for linguistics</title>
+    <link rel="stylesheet" href="assets/site.css" />
+  </head>
+  <body>
+    <div class="sticky-title">
+      <div class="inner"><h1>AI for linguistics</h1></div>
     </div>
-    <footer class="about" aria-label="Who are we"><p><strong>Who are we:</strong> We explore ways to facilitate, accelerate, automate, transform and scale different parts of research in semantics. Contributors include <a href="http://www.emmanuel.chemla.free.fr/" target="_blank" rel="noopener"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="10" cy="6" r="3"/><path d="M4 17v-1a6 6 0 0 1 12 0v1"/></svg>Emmanuel Chemla</a>, <a href="https://rdhawkins.com/" target="_blank" rel="noopener"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="10" cy="6" r="3"/><path d="M4 17v-1a6 6 0 0 1 12 0v1"/></svg>Robert Hawkins</a>, and <a href="https://www.patrickdelliott.com/" target="_blank" rel="noopener"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle cx="10" cy="6" r="3"/><path d="M4 17v-1a6 6 0 0 1 12 0v1"/></svg>Patrick Elliott</a>. We do not take responsibility for the use of these tools, some are experimental and require great caution. We nonetheless hope that they may prove useful in the right circumstances and, above all, inspire new ideas and ways of working.</p></footer>
-  </main>
-</body>
+    <main>
+      <header>
+        <p class="intro">
+          AI can accelerate some aspects of research in linguistics. The tools
+          below offer inspiration for your everyday work in semantics. Use with
+          caution, and with creativity! You can use prompts to transform your
+          work or the tools themselves. And you may use these as mere
+          inspirations in your own workflow.
+        </p>
+      </header>
+      <div class="tools">
+        <article aria-labelledby="linglib-title">
+          <div>
+            <h2 id="linglib-title">linglib</h2>
+            <p>
+              A library of facts and theories in semantics, all formalized in
+              Lean.<span
+                class="coverage"
+                title="551 works tagged formalized in semantics in the LingLib bibliography; checked 25 October 2026."
+                >550+ works in semantics covered</span
+              >
+            </p>
+          </div>
+          <figure>
+            <a
+              class="figure-link"
+              href="https://github.com/linglib-community/linglib"
+              aria-label="Explore linglib on GitHub"
+              ><img
+                src="assets/linglib.svg"
+                width="640"
+                height="374"
+                alt="LingLib logo above a shelf of book-like theories marked with ∀, ∃, and other logical symbols."
+            /></a>
+          </figure>
+          <div class="card-bottom">
+            <a
+              class="tool-link"
+              href="https://github.com/linglib-community/linglib"
+              >Explore the library <span aria-hidden="true">↗</span></a
+            ><a
+              class="credit"
+              href="https://rdhawkins.com/"
+              target="_blank"
+              rel="noopener"
+              >by Robert Hawkins</a
+            >
+          </div>
+        </article>
+        <article aria-labelledby="linglab-title">
+          <div>
+            <h2 id="linglab-title">linglab</h2>
+            <p>
+              Work on your facts and principles.<span class="requirements"
+                >Requires an AI assistant of your own.</span
+              >
+            </p>
+          </div>
+          <figure>
+            <a
+              class="figure-link"
+              href="https://ai-for-linguistics.github.io/linglab/"
+              aria-label="View the linglab intro"
+              ><img
+                src="assets/linglab.svg"
+                width="640"
+                height="374"
+                alt="A chat with an AI assistant beside a report comparing theories against facts."
+            /></a>
+          </figure>
+          <div class="card-bottom">
+            <a
+              class="tool-link"
+              href="https://ai-for-linguistics.github.io/linglab/"
+              >View the intro <span aria-hidden="true">↗</span></a
+            >
+          </div>
+        </article>
+        <article aria-labelledby="lingrev-title">
+          <div>
+            <h2 id="lingrev-title">lingrev</h2>
+            <p>
+              Review your paper.<span class="requirements"
+                >Requires an AI assistant of your own.</span
+              >
+            </p>
+          </div>
+          <figure>
+            <a
+              class="figure-link"
+              href="https://ai-for-linguistics.github.io/lingrev/"
+              aria-label="View the lingrev intro"
+              ><img
+                src="assets/lingrev.svg"
+                width="640"
+                height="374"
+                alt="A chat for requesting checks and revisions beside a paper review dashboard."
+            /></a>
+          </figure>
+          <div class="card-bottom">
+            <a
+              class="tool-link"
+              href="https://ai-for-linguistics.github.io/lingrev/"
+              >View the intro <span aria-hidden="true">↗</span></a
+            >
+          </div>
+        </article>
+      </div>
+      <a class="mission-link" href="mission.html"
+        ><span
+          ><strong>Our mission</strong
+          ><small
+            >An open discussion of how AI can and should fit into linguistic
+            research.</small
+          ></span
+        ><span class="arrow" aria-hidden="true">↗</span></a
+      >
+      <footer class="about" aria-label="Who are we">
+        <p>
+          <strong>Who are we:</strong> We explore ways to facilitate,
+          accelerate, automate, transform and scale different parts of research
+          in semantics. Contributors include
+          <a
+            href="http://www.emmanuel.chemla.free.fr/"
+            target="_blank"
+            rel="noopener"
+            ><svg
+              viewBox="0 0 20 20"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              aria-hidden="true"
+            >
+              <circle cx="10" cy="6" r="3" />
+              <path d="M4 17v-1a6 6 0 0 1 12 0v1" /></svg
+            >Emmanuel Chemla</a
+          >,
+          <a href="https://rdhawkins.com/" target="_blank" rel="noopener"
+            ><svg
+              viewBox="0 0 20 20"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              aria-hidden="true"
+            >
+              <circle cx="10" cy="6" r="3" />
+              <path d="M4 17v-1a6 6 0 0 1 12 0v1" /></svg
+            >Robert Hawkins</a
+          >,
+          <a
+            href="https://www.patrickdelliott.com/"
+            target="_blank"
+            rel="noopener"
+            ><svg
+              viewBox="0 0 20 20"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              aria-hidden="true"
+            >
+              <circle cx="10" cy="6" r="3" />
+              <path d="M4 17v-1a6 6 0 0 1 12 0v1" /></svg
+            >Patrick Elliott</a
+          >, and
+          <a href="https://www.shane.st/" target="_blank" rel="noopener"
+            ><svg
+              viewBox="0 0 20 20"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              aria-hidden="true"
+            >
+              <circle cx="10" cy="6" r="3" />
+              <path d="M4 17v-1a6 6 0 0 1 12 0v1" /></svg
+            >Shane Steinert-Threlkeld</a
+          >. We do not take responsibility for the use of these tools, some are
+          experimental and require great caution. We nonetheless hope that they
+          may prove useful in the right circumstances and, above all, inspire
+          new ideas and ways of working.
+        </p>
+      </footer>
+    </main>
+  </body>
 </html>
